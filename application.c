@@ -12,18 +12,24 @@ int main() {
 
     if (contains(set, a) && contains(set, b)) {
         puts("Ok. Set contains 'a' & 'b'");
+    } else {
+        puts("Set doesn't 'a' or 'b'");
     }
 
     if (contains(set, c)) {
         puts("Ok. Set contains 'c'");
+    } else {
+        puts("Set doesn't contains 'c'");
     }
 
-    if (differ(a, add(set, b))) {
-        puts("'a' differs from 'b'");
+    if (differ(a, add(set, a))) {
+        puts("'a' doesn't differ from itself");
     }
 
     if (!contains(set, drop(set, a))) {
         puts("'a' was dropped");
+    } else {
+        puts("'a' wasn't dropped yet");
     }
 
     deleteObject(drop(set, b));
