@@ -6,7 +6,11 @@
 
 int main() {
     void* set = newObject(Object);
-    void* a = add(set, newObject(Object));
+
+    int* a = newObject(Object);
+    *a = 2001; 
+    a = add(set, a);
+
     void* b = add(set, newObject(Object));
     void* c = newObject(Object);
 
@@ -22,8 +26,9 @@ int main() {
         puts("Set doesn't contains 'c'");
     }
 
-    if (differ(a, add(set, a))) {
+    if (!differ(a, add(set, a))) {
         puts("'a' doesn't differ from itself");
+        printf("Value for 'a' is %d\n", *a);
     }
 
     if (!contains(set, drop(set, a))) {
